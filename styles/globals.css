@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic layout & accessibility helpers */
+html, body, #__next {
+  height: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: -999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  z-index: 50;
+  border-radius: 4px;
+}
+
+/* RTL helpers (applied when dir='rtl' on html) */
+[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+[dir="rtl"] .text-left { text-align: right; }
+
+/* Brand color tokens */
+.bg-bisho-sand { background-color: #F6F2EC; }
+.text-bisho-text { color: #0F1720; }
+.bg-bisho-darkgreen { background-color: #1F5D3B; }
