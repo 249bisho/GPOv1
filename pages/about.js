@@ -1,4 +1,12 @@
-export default function About() {
+import Head from 'next/head'
+
+// Inside your function:
+<Head>
+  <title>Bisho | Global CX & BPO Solutions</title>
+  <meta name="description" content="Premium multilingual BPO services for U.S. and Middle East markets." />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+  export default function About() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h1 className="text-2xl font-bold mb-4">About Bisho</h1>
