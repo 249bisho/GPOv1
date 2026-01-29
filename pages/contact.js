@@ -1,4 +1,12 @@
-import { useState } from 'react';
+import Head from 'next/head'
+
+// Inside your function:
+<Head>
+  <title>Bisho | Global CX & BPO Solutions</title>
+  <meta name="description" content="Premium multilingual BPO services for U.S. and Middle East markets." />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+  import { useState } from 'react';
 
 export default function Contact() {
   const [status, setStatus] = useState(null); // 'success', 'error', or 'pending'
