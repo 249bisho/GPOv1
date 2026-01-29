@@ -1,4 +1,12 @@
-import '../styles/globals.css'
+import Head from 'next/head'
+
+// Inside your function:
+<Head>
+  <title>Bisho | Global CX & BPO Solutions</title>
+  <meta name="description" content="Premium multilingual BPO services for U.S. and Middle East markets." />
+  <link rel="icon" href="/favicon.ico" />
+</Head>
+  import '../styles/globals.css'
 import { useEffect } from 'react'
 import Layout from '../components/Layout'
 import { useRouter } from 'next/router'
