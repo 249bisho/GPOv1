@@ -13,11 +13,11 @@ export default function Contact() {
     formData.append("form-name", "contact"); 
 
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
+      const response = await fetch("/__forms.html", { // Post directly to the decoy file
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: new URLSearchParams(formData).toString(),
+});
 
       if (response.ok) {
         setStatus('success');
