@@ -1,21 +1,14 @@
 import Head from 'next/head'
-
-// Inside your function:
-<Head>
-  <title>Bisho | Global CX & BPO Solutions</title>
-  <meta name="description" content="Premium multilingual BPO services for U.S. and Middle East markets." />
-  <link rel="icon" href="/favicon.ico" />
-</Head>
-  import '../styles/globals.css'
 import { useEffect } from 'react'
-import Layout from '../components/Layout'
 import { useRouter } from 'next/router'
+import Layout from '../components/Layout'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
-    // Set dir attribute for RTL locales
+    // Set dir attribute for RTL locales automatically
     if (router.locale === 'ar') {
       document.documentElement.dir = 'rtl'
       document.documentElement.lang = 'ar'
@@ -26,10 +19,25 @@ function MyApp({ Component, pageProps }) {
   }, [router.locale])
 
   return (
-    <Layout>
-      <a href="#content" className="skip-link">Skip to content</a>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        {/* These tags apply to every single page on the site */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <title>Bisho | Global CX & BPO Solutions</title>
+      </Head>
+
+      <Layout>
+        {/* Accessibility skip link (hidden by default in CSS) */}
+        <a href="#main-content" className="sr-only focus:not-sr-only px-4 py-2 bg-bisho-gold text-white absolute z-50">
+          Skip to content
+        </a>
+        
+        <main id="main-content">
+          <Component {...pageProps} />
+        </main>
+      </Layout>
+    </>
   )
 }
 
