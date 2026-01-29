@@ -1,11 +1,11 @@
-/** next.config.js - minimal config with i18n and image domains */
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   i18n: {
-    locales: ['en', 'ar'],
-    defaultLocale: 'en'
+    locales: ['en', 'ar'], // The languages you support
+    defaultLocale: 'en',   // The default language
+    localeDetection: true, // Automatically detects user location/browser language
   },
-  images: {
-    domains: ['images.unsplash.com', 'images.pexels.com']
-  }
 }
+
+module.exports = nextConfig
