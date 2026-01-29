@@ -1,17 +1,20 @@
-// data/translations.js
-export const translations = {
+export const t = {
   en: {
-    nav_services: "Services",
-    nav_about: "About Us",
-    hero_title: "UNLIMITED SCALE.",
-    hero_subtitle: "High-execution BPO solutions connecting specialized talent.",
-    cta_button: "Start Scaling"
+    heroTitle: "UNLIMITED SCALE.",
+    heroSub: "High-execution BPO solutions connecting specialized talent from the Middle East to global markets.",
+    services: "Services",
+    contact: "Contact Us",
+    formName: "Full Name",
+    formEmail: "Email Address",
+    formSubmit: "Submit Inquiry"
   },
   ar: {
-    nav_services: "خدماتنا",
-    nav_about: "من نحن",
-    hero_title: "نطاق غير محدود",
-    hero_subtitle: "حلول تعهيد العمليات التجارية عالية التنفيذ لربط المواهب المتخصصة.",
-    cta_button: "ابدأ التوسع"
+    heroTitle: "نطاق غير محدود.",
+    heroSub: "حلول تعهيد العمليات التجارية (BPO) التي تربط المواهب المتخصصة في الشرق الأوسط بالأسواق العالمية.",
+    services: "خدماتنا",
+    contact: "اتصل بنا",
+    formName: "الاسم الكامل",
+    formEmail: "البريد الإلكتروني",
+    formSubmit: "إرسال الطلب"
   }
 };
