@@ -77,10 +77,12 @@ export default function Home() {
         <div className="flex justify-center items-center relative">
           <div className="relative animate-float z-20">
             <img 
-              src="/images/cx-expert-removebg-preview.png" 
+              src="/images/cx-expert.png" 
               alt="CX Representative Sketch"
               className="max-w-full h-auto drop-shadow-2xl"
               style={{ width: '550px' }} 
+              onLoad={() => console.log("Success: Image loaded.")}
+              onError={(e) => console.log("Error: Browser cannot find /images/cx-expert.png")}
             />
           </div>
           
