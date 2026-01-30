@@ -73,3 +73,86 @@
   opacity: 1;
   transform: translateY(0);
 }
+/* Founder Card Styles */
+.card-client {
+  background: #0CAA41; /* Glassdoor Green */
+  width: 16rem;
+  padding: 25px 20px;
+  border: 4px solid #37c46a;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  margin: 0 auto;
+}
+
+.card-client:hover {
+  transform: translateY(-10px);
+}
+
+.user-picture {
+  overflow: hidden;
+  width: 6rem;
+  height: 6rem;
+  border: 4px solid #37c46a;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background: white;
+}
+
+.name-client {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 300;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.social-media:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+  background: rgba(255,255,255,0.3);
+}
+
+.social-media a {
+  position: relative;
+  margin: 0 15px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.social-media a svg {
+  width: 1.5rem;
+  fill: currentColor;
+}
+
+/* Tooltip */
+.tooltip-social {
+  background: #111827;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+.social-media a:hover .tooltip-social {
+  opacity: 1;
+}
