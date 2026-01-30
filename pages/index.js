@@ -75,17 +75,19 @@ export default function Home() {
         </div>
 
         {/* Right Side: The Pencil Drawing */}
-        <div className="flex justify-center items-center relative h-[400px] md:h-[600px]">
-          <div className="relative w-full h-full animate-float">
-            <Image 
-              src="/images/cx-expert.png" // Make sure the name matches your upload
-              alt="CX Representative Sketch"
-              layout="fill"
-              objectFit="contain"
-              priority
-              className="drop-shadow-2xl"
-            />
-          </div>
+<div className="flex justify-center items-center relative">
+  <div className="relative animate-float">
+    <img 
+      src="/images/cx-expert.png" 
+      alt="CX Representative Sketch"
+      className="max-w-full h-auto drop-shadow-2xl"
+      style={{ width: '500px' }} 
+    />
+  </div>
+  
+  {/* Subtle Glow behind the sketch */}
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] -z-10 opacity-50" />
+</div>
           {/* Subtle Glow behind the sketch */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] -z-10 opacity-50" />
         </div>
