@@ -1,32 +1,43 @@
 import { useRouter } from 'next/router';
-import { translations } from '../data/translations';
+import Head from 'next/head';
 
 export default function Home() {
-  const router = useRouter();
-  const { locale } = router; // This detects 'en' or 'ar'
+  const { locale } = useRouter();
   
-  // This variable now holds the correct language data
-  const t = translations[locale] || translations.en;
+  // This is the "Safe" way. If 'ar' is missing, it falls back to 'en'.
+  const content = {
+    en: {
+      hero: "Unlimited Scale.",
+      sub: "High-execution BPO solutions connecting specialized talent from the Middle East to global markets.",
+    },
+    ar: {
+      hero: "توسع لا نهائي.",
+      sub: "حلول تعهيد العمليات عالية التنفيذ التي تربط المواهب المتخصصة من الشرق الأوسط بالأسواق العالمية.",
+    }
+  };
+
+  const t = content[locale] || content.en;
 
   return (
-    <div className="bg-[#F6F2EC]">
-      {/* Dynamic Title */}
-      <h1 className="text-7xl font-black text-[#1F5D3B]">
-        {t.hero_title}
-      </h1>
-      
-      {/* Dynamic Subtitle */}
-      <p className="text-xl text-[#3C6A46]">
-        {t.hero_subtitle}
-      </p>
+    <div className="bg-white min-h-screen">
+      <Head>
+        <title>Bisho | Global Talent</title>
+      </Head>
 
-      {/* Language Switcher Button */}
-      <button 
-        onClick={() => router.push(router.pathname, router.asPath, { locale: locale === 'en' ? 'ar' : 'en' })}
-        className="mt-8 px-4 py-2 bg-[#C9A77F] font-bold uppercase tracking-widest text-xs"
-      >
-        {locale === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-      </button>
+      <main className="max-w-6xl mx-auto px-6 py-20">
+        <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-6">
+          {t.hero}
+        </h1>
+        <p className="text-xl text-slate-600 max-w-2xl leading-relaxed">
+          {t.sub}
+        </p>
+        
+        <div className="mt-10">
+          <button className="bg-[#0CAA41] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-700 transition-all">
+            {locale === 'en' ? 'View Services' : 'عرض الخدمات'}
+          </button>
+        </div>
+      </main>
     </div>
   );
 }
