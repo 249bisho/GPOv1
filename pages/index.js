@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
 
 export default function Home() {
   const { locale } = useRouter();
@@ -75,21 +74,18 @@ export default function Home() {
         </div>
 
         {/* Right Side: The Pencil Drawing */}
-<div className="flex justify-center items-center relative">
-  <div className="relative animate-float">
-    <img 
-      src="/images/cx-expert.png" 
-      alt="CX Representative Sketch"
-      className="max-w-full h-auto drop-shadow-2xl"
-      style={{ width: '500px' }} 
-    />
-  </div>
-  
-  {/* Subtle Glow behind the sketch */}
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] -z-10 opacity-50" />
-</div>
+        <div className="flex justify-center items-center relative">
+          <div className="relative animate-float z-20">
+            <img 
+              src="/images/cx-expert.png" 
+              alt="CX Representative Sketch"
+              className="max-w-full h-auto drop-shadow-2xl"
+              style={{ width: '500px' }} 
+            />
+          </div>
+          
           {/* Subtle Glow behind the sketch */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] -z-10 opacity-50" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] z-10 opacity-50" />
         </div>
 
       </main>
