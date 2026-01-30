@@ -1,84 +1,99 @@
-import { useState } from 'react';
-import Head from 'next/head';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 export default function Contact() {
-  const [status, setStatus] = useState(null); // 'success', 'error', or 'pending'
+  const { locale } = useRouter();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('pending');
-    
-    const formData = new FormData(e.target);
-    formData.append("form-name", "contact");
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        e.target.reset();
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
+  const content = {
+    en: {
+      title: "Get in Touch",
+      subtitle: "Ready to scale your operations? Let's discuss how Pingora can build your global team.",
+      name: "Full Name",
+      email: "Work Email",
+      message: "How can we help you scale?",
+      button: "Send Inquiry",
+      info: "Global Headquarters",
+      address: "Pingora Solutions Group",
+      tagline: "Unlimited Scale. Zero Friction."
+    },
+    ar: {
+      title: "تواصل معنا",
+      subtitle: "جاهز لتوسيع عملياتك؟ دعنا نناقش كيف يمكن لـ بينغورا بناء فريقك العالمي.",
+      name: "الاسم الكامل",
+      email: "البريد الإلكتروني للعمل",
+      message: "كيف يمكننا مساعدتك في التوسع؟",
+      button: "إرسال الاستفسار",
+      info: "المقر العالمي",
+      address: "مجموعة بينغورا للحلول",
+      tagline: "توسع لا نهائي. بلا عوائق."
     }
   };
 
+  const t = content[locale] || content.en;
+
   return (
-    <div className="bg-[#F6F2EC] min-h-screen text-[#0F1720]">
+    <div className="bg-white min-h-screen py-24 px-6 text-slate-900">
       <Head>
-        <title>Bisho | Contact Global CX & BPO Solutions</title>
-        <meta name="description" content="Premium multilingual BPO services for U.S. and Middle East markets." />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Contact | Pingora Global</title>
       </Head>
 
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-6xl font-black uppercase tracking-tighter mb-2 text-[#1F5D3B]">
-          Contact Bisho.
-        </h1>
-        <p className="text-xl font-medium mb-12 text-[#3C6A46]">Global Business Process Outsourcing</p>
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+        
+        {/* Left Side: Contact Info */}
+        <div className={locale === 'ar' ? 'text-right' : 'text-left'}>
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter mb-6 uppercase">
+            {t.title}
+          </h1>
+          <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-md">
+            {t.subtitle}
+          </p>
 
-        {status === 'success' && (
-          <div className="bg-[#1F5D3B] text-white p-6 rounded mb-8 font-bold uppercase tracking-widest">
-            Submission Received. We will be in touch shortly.
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-green-600 font-bold uppercase tracking-widest text-xs mb-2">{t.info}</h3>
+              <p className="font-bold text-xl">{t.address}</p>
+              <p className="text-slate-500">contact@pingora.global</p>
+            </div>
+            <div className="pt-8 border-t border-gray-100">
+              <p className="text-2xl font-black text-slate-200 uppercase italic">
+                {t.tagline}
+              </p>
+            </div>
           </div>
-        )}
+        </div>
 
-        {status === 'error' && (
-          <div className="bg-red-600 text-white p-6 rounded mb-8 font-bold">
-            Something went wrong. Please try again.
-          </div>
-        )}
-
-        <form
-          name="contact"
-          onSubmit={handleSubmit}
-          className="space-y-8"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <input name="name" placeholder="NAME" className="bg-transparent border-b-2 border-[#C9A77F] p-4 outline-none focus:border-[#1F5D3B] transition-colors" required />
-            <input name="email" type="email" placeholder="EMAIL" className="bg-transparent border-b-2 border-[#C9A77F] p-4 outline-none focus:border-[#1F5D3B] transition-colors" required />
-          </div>
-
-          <textarea name="message" placeholder="MESSAGE" className="w-full bg-transparent border-b-2 border-[#C9A77F] p-4 outline-none focus:border-[#1F5D3B] transition-colors h-32" required></textarea>
-
-          <button 
-            type="submit" 
-            className="bg-[#1F5D3B] text-white px-12 py-5 font-black uppercase tracking-[0.2em] hover:bg-black transition-all"
-            disabled={status === 'pending'}
-          >
-            {status === 'pending' ? 'Sending...' : 'Submit Inquiry'}
-          </button>
-        </form>
+        {/* Right Side: Form */}
+        <div className="bg-slate-50 p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <form className="space-y-6">
+            <div>
+              <label className="block text-sm font-bold mb-2 text-slate-700">{t.name}</label>
+              <input 
+                type="text" 
+                className="w-full p-4 rounded-xl border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-100 outline-none transition-all"
+                placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-bold mb-2 text-slate-700">{t.email}</label>
+              <input 
+                type="email" 
+                className="w-full p-4 rounded-xl border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-100 outline-none transition-all"
+                placeholder="john@company.com"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-bold mb-2 text-slate-700">{t.message}</label>
+              <textarea 
+                rows="4" 
+                className="w-full p-4 rounded-xl border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-100 outline-none transition-all"
+              ></textarea>
+            </div>
+            <button className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-green-600 transition-colors shadow-lg">
+              {t.button}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
-  );
+  )
 }
