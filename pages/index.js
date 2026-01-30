@@ -41,9 +41,9 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-white overflow-x-hidden">
-      <Head>
-        <title>Bisho | Global Talent</title>
-      </Head>
+     <Head>
+  <title>Pingora | Global Talent</title>
+</Head>
 
       <Script 
         src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" 
