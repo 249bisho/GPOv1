@@ -1,7 +1,31 @@
-/* The Nav Link Effect */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* This forces the Inter font on everything */
+  html, body {
+    font-family: 'Inter', sans-serif !important;
+    background-color: #FFFFFF;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Ensures headings look bold and professional */
+  h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #111827;
+  }
+}
+
+/* --- Your Elegant Nav Link Effect --- */
 .nav-link-elegant {
   padding: 8px 20px;
-  color: #374151; /* Glassdoor Gray */
+  color: #374151; 
   font-size: 1rem;
   cursor: pointer;
   border-radius: 20px;
@@ -22,7 +46,7 @@
   height: 100%;
   background: radial-gradient(
     circle,
-    rgba(12, 170, 65, 0.2) 0%, /* Glassdoor Green Glow */
+    rgba(12, 170, 65, 0.2) 0%, 
     rgba(255, 255, 255, 0) 70%
   );
   transform: scale(0);
@@ -34,6 +58,18 @@
 }
 
 .nav-link-elegant:hover {
-  color: #0CAA41; /* Text turns green on hover */
+  color: #0CAA41; 
   background: #f9fafb;
+}
+
+/* --- Scroll Reveal Classes (Optional but Recommended) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
