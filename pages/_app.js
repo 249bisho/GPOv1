@@ -1,4 +1,5 @@
-import Head from 'next/head'
+
+  import Head from 'next/head'
 import Layout from '../components/Layout'
 import '../styles/globals.css' // CRITICAL: This must be here!
 
