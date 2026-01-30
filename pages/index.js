@@ -2,12 +2,12 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const { locale } = useRouter();
   const vantaRef = useRef(null);
 
-  // Initialize the 3D Topology effect
   const initVanta = () => {
     if (window.VANTA && window.VANTA.TOPOLOGY) {
       window.VANTA.TOPOLOGY({
@@ -19,8 +19,8 @@ export default function Home() {
         minWidth: 200.00,
         scale: 1.00,
         scaleMobile: 1.00,
-        color: 0x0caa41,        // Bisho Green lines
-        backgroundColor: 0xffffff // White background
+        color: 0x0caa41,
+        backgroundColor: 0xffffff
       })
     }
   };
@@ -41,12 +41,11 @@ export default function Home() {
   const t = content[locale] || content.en;
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
+    <div className="relative min-h-screen bg-white overflow-x-hidden">
       <Head>
         <title>Bisho | Global Talent</title>
       </Head>
 
-      {/* 1. Load 3D Engine Scripts (CDN Method for GitHub users) */}
       <Script 
         src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" 
         strategy="beforeInteractive" 
@@ -56,28 +55,41 @@ export default function Home() {
         onLoad={initVanta} 
       />
 
-      {/* 2. Background Layer (Vanta renders here) */}
-      <div 
-        ref={vantaRef} 
-        className="fixed inset-0 z-0" 
-        style={{ height: '100vh', width: '100vw' }}
-      />
+      {/* 3D Background */}
+      <div ref={vantaRef} className="fixed inset-0 z-0" style={{ height: '100vh' }} />
 
-      {/* 3. Content Layer (z-10 ensures it stays above the lines) */}
-      <main className="relative z-10 max-w-6xl mx-auto px-6 py-20 min-h-screen flex flex-col justify-center">
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-6 uppercase">
-          {t.hero}
-        </h1>
-        <p className="text-xl md:text-2xl text-slate-600 max-w-2xl leading-relaxed font-medium">
-          {t.sub}
-        </p>
+      {/* Main Content Grid */}
+      <main className="relative z-10 max-w-7xl mx-auto px-6 min-h-screen grid lg:grid-cols-2 items-center gap-12 pt-20">
         
-        <div className="mt-10">
-          {/* Using your custom Elegant Button class from globals.css */}
+        {/* Left Side: Text */}
+        <div className={locale === 'ar' ? 'text-right' : 'text-left'}>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 mb-6 uppercase leading-[0.9]">
+            {t.hero}
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed font-medium mb-10">
+            {t.sub}
+          </p>
           <button className="nav-link-elegant border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm scale-110">
             {t.btn}
           </button>
         </div>
+
+        {/* Right Side: The Pencil Drawing */}
+        <div className="flex justify-center items-center relative h-[400px] md:h-[600px]">
+          <div className="relative w-full h-full animate-float">
+            <Image 
+              src="/images/cx-expert.png" // Make sure the name matches your upload
+              alt="CX Representative Sketch"
+              layout="fill"
+              objectFit="contain"
+              priority
+              className="drop-shadow-2xl"
+            />
+          </div>
+          {/* Subtle Glow behind the sketch */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] -z-10 opacity-50" />
+        </div>
+
       </main>
     </div>
   );
