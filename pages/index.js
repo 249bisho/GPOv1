@@ -8,7 +8,7 @@ export default function Home() {
   const vantaRef = useRef(null);
 
   const initVanta = () => {
-    if (window.VANTA && window.VANTA.TOPOLOGY) {
+    if (typeof window !== 'undefined' && window.VANTA && window.VANTA.TOPOLOGY) {
       window.VANTA.TOPOLOGY({
         el: vantaRef.current,
         mouseControls: true,
@@ -27,13 +27,13 @@ export default function Home() {
   const content = {
     en: {
       hero: "Unlimited Scale.",
-      sub: "High-execution BPO solutions connecting specialized talent from the Middle East to global markets.",
-      btn: "View Services"
+      sub: "High-execution BPO solutions connecting specialized global talent to international markets through the Pingora network.",
+      btn: "Explore Pingora"
     },
     ar: {
       hero: "توسع لا نهائي.",
-      sub: "حلول تعهيد العمليات عالية التنفيذ التي تربط المواهب المتخصصة من الشرق الأوسط بالأسواق العالمية.",
-      btn: "عرض الخدمات"
+      sub: "حلول تعهيد العمليات عالية التنفيذ التي تربط المواهب العالمية المتخصصة بالأسواق الدولية عبر شبكة بينغورا.",
+      btn: "اكتشف بينغورا"
     }
   };
 
@@ -41,9 +41,10 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-white overflow-x-hidden">
-     <Head>
-  <title>Pingora | Global Talent</title>
-</Head>
+      <Head>
+        <title>Pingora | Global Talent & Execution</title>
+        <meta name="description" content="Pingora provides high-scale BPO solutions and global specialized talent." />
+      </Head>
 
       <Script 
         src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" 
@@ -68,25 +69,25 @@ export default function Home() {
           <p className="text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed font-medium mb-10">
             {t.sub}
           </p>
-          <button className="nav-link-elegant border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm scale-110">
+          <button className="nav-link-elegant border border-gray-200 bg-white/80 backdrop-blur-sm shadow-sm scale-110 px-8 py-3 rounded-full hover:bg-green-50 transition-all duration-300">
             {t.btn}
           </button>
         </div>
 
-        {/* Right Side: The Pencil Drawing */}
+        {/* Right Side: The Visual Element */}
         <div className="flex justify-center items-center relative">
           <div className="relative animate-float z-20">
             <img 
               src="/images/cx-expert.png" 
-              alt="CX Representative Sketch"
+              alt="Pingora Talent Representative"
               className="max-w-full h-auto drop-shadow-2xl"
               style={{ width: '550px' }} 
-              onLoad={() => console.log("Success: Image loaded.")}
-              onError={(e) => console.log("Error: Browser cannot find /images/cx-expert.png")}
+              onLoad={() => console.log("Pingora Asset: Loaded.")}
+              onError={(e) => console.log("Image path error: Check /public/images/cx-expert.png")}
             />
           </div>
           
-          {/* Subtle Glow behind the sketch */}
+          {/* Subtle Glow behind the asset */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full blur-[120px] z-10 opacity-40" />
         </div>
 
