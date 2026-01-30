@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   const router = useRouter()
   const { locale } = router
 
-  // Simple translations for the menu
+  // Simple translations for the menu updated for Pingora
   const navItems = {
     en: [
       { name: 'About', path: '/about' },
@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       { name: 'Contact', path: '/contact' }
     ],
     ar: [
-      { name: 'عن بيشو', path: '/about' },
+      { name: 'عن بينغورا', path: '/about' },
       { name: 'خدماتنا', path: '/services' },
       { name: 'اتصل بنا', path: '/contact' }
     ]
@@ -24,12 +24,12 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="py-6 px-10 flex justify-between items-center bg-white border-b border-gray-100 sticky top-0 z-50">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-extrabold tracking-tighter text-slate-900">
-          BISHO
+        {/* Logo updated to PINGORA */}
+        <Link href="/" className="text-2xl font-extrabold tracking-tighter text-slate-900 uppercase">
+          PINGORA
         </Link>
 
-        {/* Navigation with your Elegant Effect */}
+        {/* Navigation with Elegant Effect */}
         <nav className="hidden md:flex gap-2">
           {currentNav.map((item) => (
             <Link 
@@ -56,8 +56,9 @@ const Layout = ({ children }) => {
         {children}
       </main>
 
+      {/* Footer updated to Pingora Global */}
       <footer className="py-10 text-center text-gray-400 text-sm">
-        &copy; {new Date().getFullYear()} Bisho Global. All rights reserved.
+        &copy; {new Date().getFullYear()} Pingora Global. All rights reserved.
       </footer>
     </div>
   )
