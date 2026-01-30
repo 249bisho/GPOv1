@@ -1,11 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
+module.exports = {
   i18n: {
     locales: ['en', 'ar'],
     defaultLocale: 'en',
-    localeDetection: true, 
+    localeDetection: false, // Setting this to false often stops Vercel build errors
   },
 }
-
-module.exports = nextConfig
