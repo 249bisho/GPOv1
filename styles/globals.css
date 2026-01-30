@@ -2,31 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Basic layout & accessibility helpers */
-html, body, #__next {
-  height: 100%;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#F6F2EC] text-[#0F1720] antialiased;
+  }
+  /* This creates the aggressive, modern bolding you want */
+  h1, h2, h3, h4 {
+    @apply font-black uppercase tracking-tighter leading-[0.85];
+    font-family: 'Syne', sans-serif;
+  }
 }
 
-.skip-link {
-  position: absolute;
-  left: -999px;
-  top: -999px;
+@layer components {
+  .btn-primary {
+    @apply bg-[#1F5D3B] text-white px-8 py-4 font-bold uppercase tracking-widest 
+           hover:bg-[#0F1720] transition-all duration-300 active:scale-95;
+  }
+  
+  .input-underlined {
+    @apply w-full bg-transparent border-b-2 border-[#C9A77F] py-4 
+           outline-none focus:border-[#1F5D3B] transition-colors font-medium;
+  }
 }
 
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  background: white;
-  padding: 0.5rem 1rem;
-  z-index: 50;
-  border-radius: 4px;
+/* Fix for Arabic Text Bolding */
+[dir="rtl"] body {
+  font-family: 'Inter', sans-serif; /* You can swap this for a specific Arabic font later */
 }
-
-/* RTL helpers (applied when dir='rtl' on html) */
-[dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
-[dir="rtl"] .text-left { text-align: right; }
-
-/* Brand color tokens */
-.bg-bisho-sand { background-color: #F6F2EC; }
-.text-bisho-text { color: #0F1720; }
-.bg-bisho-darkgreen { background-color: #1F5D3B; }
