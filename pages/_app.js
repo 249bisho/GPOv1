@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
+    // Handling RTL/LTR switch
     if (router.locale === 'ar') {
       document.documentElement.dir = 'rtl'
       document.documentElement.lang = 'ar'
@@ -21,6 +22,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        {/* Modern Font Injection */}
         <link 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Syne:wght@800&display=swap" 
           rel="stylesheet" 
@@ -33,6 +36,17 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </main>
       </Layout>
+
+      <style jsx global>{`
+        h1, h2, h3 {
+          font-family: 'Syne', sans-serif;
+          letter-spacing: -0.04em;
+          line-height: 0.9;
+        }
+        body {
+          font-family: 'Inter', sans-serif;
+        }
+      `}</style>
     </>
   )
 }
