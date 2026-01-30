@@ -8,22 +8,22 @@ export default function About() {
     en: {
       identity: "Our Identity",
       hero: "BRIDGING MARKETS. SCALING TEAMS.",
-      sub: "Bisho was founded to eliminate the friction between U.S. operational needs and Middle Eastern talent potential.",
+      sub: "Pingora was founded to eliminate the friction between global operational needs and specialized talent potential across international markets.",
       leadership: "Leadership",
       bashir: "Bashir A.",
       razan: "Razan A.",
       role: "Co-founder",
-      mission: "We don't just provide agents; we provide the operational backbone that allows businesses to compete with the giants."
+      mission: "We don't just provide agents; we provide the operational backbone that allows businesses to scale without limits."
     },
     ar: {
       identity: "هويتنا",
       hero: "ربط الأسواق. توسيع الفرق.",
-      sub: "تأسست بيشو لإزالة الاحتكاك بين الاحتياجات التشغيلية الأمريكية وإمكانيات المواهب في الشرق الأوسط.",
+      sub: "تأسست بينغورا لإزالة الاحتكاك بين الاحتياجات التشغيلية العالمية وإمكانيات المواهب المتخصصة في الأسواق الدولية.",
       leadership: "القيادة",
       bashir: "بشير أ.",
       razan: "رزان أ.",
       role: "مؤسس مشارك",
-      mission: "نحن لا نوفر وكلاء فحسب؛ نحن نوفر العمود الفقري التشغيلي الذي يسمح للشركات بمنافسة العمالقة."
+      mission: "نحن لا نوفر وكلاء فحسب؛ نحن نوفر العمود الفقري التشغيلي الذي يسمح للشركات بالتوسع دون حدود."
     }
   };
 
@@ -32,7 +32,7 @@ export default function About() {
   return (
     <div className="bg-white min-h-screen text-slate-900">
       <Head>
-        <title>About Bisho | Leadership</title>
+        <title>About Pingora | Leadership</title>
       </Head>
 
       {/* Hero Section */}
