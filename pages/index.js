@@ -74,26 +74,18 @@ export default function Home() {
         </div>
 
         {/* Right Side: The Pencil Drawing */}
-<div className="flex justify-center items-center relative min-h-[500px]">
-  <div className="relative animate-float z-20">
-    <img 
-      src="/images/cx-expert-removebg-preview.png" 
-      alt="CX Representative"
-      className="max-w-full h-auto"
-      style={{ width: '550px' }} 
-      onError={(e) => {
-        console.error("Link Broken. Browser looked for: " + e.target.src);
-        // This makes the broken image icon invisible so it doesn't look messy
-        e.target.style.opacity = '0.5'; 
-      }}
-    />
-  </div>
-  
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full blur-[120px] z-10 opacity-40" />
-</div>
+        <div className="flex justify-center items-center relative">
+          <div className="relative animate-float z-20">
+            <img 
+              src="/images/cx-expert-removebg-preview.png" 
+              alt="CX Representative Sketch"
+              className="max-w-full h-auto drop-shadow-2xl"
+              style={{ width: '550px' }} 
+            />
+          </div>
           
           {/* Subtle Glow behind the sketch */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-100 rounded-full blur-[100px] z-10 opacity-50" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full blur-[120px] z-10 opacity-40" />
         </div>
 
       </main>
