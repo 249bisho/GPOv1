@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Script from 'next/script';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 
 export default function Home() {
   const { locale } = useRouter();
@@ -14,91 +14,53 @@ export default function Home() {
         mouseControls: true,
         touchControls: true,
         gyroControls: false,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.0,
-        scaleMobile: 1.0,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
         color: 0x0caa41,
-        backgroundColor: 0xffffff,
-      });
+        backgroundColor: 0xffffff
+      })
     }
   };
 
-  return (
-    <div className="relative min-h-screen bg-white overflow-x-hidden">
-      <Head>
-        <title>Pingora | Founder-Led CX Support</title>
-        <meta
-          name="description"
-          content="Founder-led CX support for growing SaaS teams. High-touch email and chat support, tested through a 30-day pilot."
-        />
-      </Head>
+  const content = {
+    en: {
+      hero: "Founder-led, U.S.-ready agents delivering high-touch CX.",
+      sub: "Test our small, high-quality team for 30 days — no long-term commitment.",
+      servicesTitle: "Our Services",
+      services: [
+        "Email + Chat support (voice optional)",
+        "1–3 highly trained agents",
+        "Partial coverage in client timezone",
+        "Founder-managed, accountable execution"
+      ],
+      problemTitle: "When Support Starts Costing You Growth",
+      problemSub: "Backlogs, slow response times, and senior team pulled into support quietly damage your business. Most teams don’t need more people—they need controlled, accountable execution.",
+      pilotTitle: "30-Day CX Pilot",
+      pilotSub: "Experience our founder-led team in action for a full month. Fast setup, full accountability, no long-term commitment.",
+      cta: "Start Your Pilot",
+      trustTitle: "Trusted by Early Growth Companies",
+      trustSub: "High-touch CX solutions for e-commerce, SaaS, and international businesses."
+    },
+    ar: {
+      hero: "وكلاء أمريكيون بقيادة المؤسس يقدمون تجربة عملاء عالية الجودة.",
+      sub: "اختبر فريقنا الصغير والعالي الجودة لمدة 30 يومًا — بدون التزام طويل الأمد.",
+      servicesTitle: "خدماتنا",
+      services: [
+        "دعم البريد الإلكتروني والدردشة (صوتي اختياري)",
+        "1–3 وكلاء مدربون تدريباً عالياً",
+        "تغطية جزئية حسب توقيت العميل",
+        "قيادة المؤسس مع مسؤولية كاملة"
+      ],
+      problemTitle: "عندما يبدأ الدعم في إبطاء نموك",
+      problemSub: "الطلبات المتراكمة، بطء الاستجابة، وإشراك الفريق القيادي في الدعم يضر بالأعمال بصمت. معظم الفرق لا تحتاج إلى مزيد من الأشخاص — بل إلى تنفيذ منضبط ومسؤول.",
+      pilotTitle: "تجربة CX لمدة 30 يومًا",
+      pilotSub: "اختبر فريقنا بقيادة المؤسس لمدة شهر كامل. إعداد سريع، مسؤولية كاملة، بدون التزام طويل الأمد.",
+      cta: "ابدأ تجربتك",
+      trustTitle: "موثوق من قبل الشركات النامية",
+      trustSub: "حلول CX عالية الجودة للتجارة الإلكترونية، SaaS، والأعمال الدولية."
+    }
+  };
 
-      {/* Scripts for Vanta */}
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
-        src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"
-        onLoad={initVanta}
-      />
-
-      {/* Background */}
-      <div
-        ref={vantaRef}
-        className="fixed inset-0 z-0"
-        style={{ height: '100vh' }}
-      />
-
-      {/* HERO SECTION */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 min-h-screen grid lg:grid-cols-2 items-center gap-12 pt-20">
-
-        {/* LEFT: POSITIONING */}
-        <div className={locale === 'ar' ? 'text-right' : 'text-left'}>
-          <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
-            Founder-Led CX Support<br />for Growing SaaS Teams
-          </h1>
-
-          <p className="text-xl md:text-2xl text-slate-600 max-w-xl leading-relaxed mb-10">
-            High-touch email and chat support delivered by founder-trained agents.
-            Start with a 30-day pilot — no long-term commitment.
-          </p>
-
-          <div className="flex items-center gap-4 flex-wrap">
-            <a
-              href="/contact"
-              className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition"
-            >
-              Start a 30-Day Pilot
-            </a>
-
-            <span className="text-slate-500 text-sm">
-              1–3 agents • Founder managed
-            </span>
-          </div>
-        </div>
-
-        {/* RIGHT: VISUAL */}
-        <div className="flex justify-center items-center relative">
-          <div className="relative animate-float z-20">
-            <img
-              src="/images/cx-expert.png"
-              alt="Founder-led CX support team"
-              className="max-w-full h-auto drop-shadow-2xl"
-              style={{ width: '550px' }}
-              onLoad={() => console.log('Hero image loaded')}
-              onError={() =>
-                console.log('Image not found: /public/images/cx-expert.png')
-              }
-            />
-          </div>
-
-          {/* Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-green-100 rounded-full blur-[120px] z-10 opacity-40" />
-        </div>
-
-      </main>
-    </div>
-  );
-}
+  const t = con
