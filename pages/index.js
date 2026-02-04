@@ -26,44 +26,43 @@ export default function Home() {
 
   const content = {
     en: {
-      hero: "Founder-led customer support. 30-day pilot.",
-      sub: "We run your customer support like it’s our own company — for 30 days. Small team. Direct founder oversight. Short commitment.",
-      ctaPrimary: "Start a 30-day pilot",
-      ctaSecondary: "Talk directly with the founder",
+      hero: "Founder-managed customer support for teams that need help now.",
+      sub: "Pingora runs your CX with a small, trained team and direct founder oversight. Controlled scope, clear expectations, and hands-on delivery.",
+      ctaPrimary: "Talk to the founder",
+      ctaSecondary: "See if we’re a fit",
 
-      problemTitle: "The problem is familiar.",
+      problemTitle: "The problem is operational.",
       problemPoints: [
         "Support backlog keeps stacking up",
         "Founders are still answering tickets",
-        "Engineers get pulled into customer support",
+        "Engineers get pulled into CX work",
         "Customers wait too long for clear answers"
       ],
 
-      approachTitle: "Our approach",
-      approachSub: "Control and speed over a black box.",
+      approachTitle: "What we deliver",
+      approachSub: "Service-first, not volume-first.",
       approachPoints: [
-        "Few agents, trained for your workflow",
-        "Founder involved day to day",
-        "Fast iteration on process and tone",
-        "No outsourcing layers"
+        "Email and chat support",
+        "Optional voice support",
+        "1–3 dedicated agents",
+        "Partial coverage aligned to your time zones",
+        "Founder involved in delivery and QA"
       ],
 
-      pilotTitle: "The 30-day CX pilot",
-      pilotSub: "This is the product.",
-      pilotPoints: [
-        "1–3 agents",
-        "Email and chat support",
-        "Partial timezone coverage",
-        "Founder oversight and QA",
-        "Cancel anytime",
-        "Pricing shared directly"
+      modelTitle: "How the service works",
+      modelSub: "Hands-on delivery with a short initial engagement.",
+      modelPoints: [
+        "We run part or all of your customer support",
+        "Workflows and quality standards are aligned up front",
+        "The initial engagement establishes the operating rhythm",
+        "Ongoing service continues only if there is mutual fit"
       ],
 
       forWhoTitle: "Who this is for / not for",
       forWhoGood: [
-        "Early growth teams with real CX pain",
-        "Founders who need help now",
-        "Ops teams that want control and speed"
+        "Early growth teams with CX pain",
+        "Operators who want control and accountability",
+        "Companies that need a small, focused team"
       ],
       forWhoBad: [
         "Enterprise RFPs or long vendor cycles",
@@ -75,8 +74,8 @@ export default function Home() {
       techText:
         "The Vanta background animation is heavy on low-end devices. We’ll remove it on mobile or lazy-load it if it gets in the way. Clarity beats ego.",
 
-      ctaTitle: "Start with a 30-day pilot",
-      ctaText: "If this feels like the right level of control, reach out. You’ll talk with the founder."
+      ctaTitle: "Start a CX engagement",
+      ctaText: "If this fits your operating style, let’s talk. You’ll speak with the founder."
     }
   };
 
@@ -86,7 +85,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-white overflow-x-hidden">
       <Head>
         <title>Pingora | CX Pilot</title>
-        <meta name="description" content="Founder-led customer support pilot with a small team and a 30-day commitment." />
+        <meta name="description" content="Founder-managed CX services with a small team, direct oversight, and clear expectations." />
       </Head>
 
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" strategy="beforeInteractive" />
@@ -135,12 +134,12 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* PILOT */}
+        {/* OPERATING MODEL */}
         <section className="py-28">
-          <h2 className="text-4xl font-bold mb-4">{t.pilotTitle}</h2>
-          <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.pilotSub}</p>
+          <h2 className="text-4xl font-bold mb-4">{t.modelTitle}</h2>
+          <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.modelSub}</p>
           <ul className="space-y-3 text-lg text-slate-700 max-w-3xl">
-            {t.pilotPoints.map((p, i) => (
+            {t.modelPoints.map((p, i) => (
               <li key={i}>— {p}</li>
             ))}
           </ul>
