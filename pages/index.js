@@ -26,56 +26,46 @@ export default function Home() {
 
   const content = {
     en: {
-      hero: "Founder-managed customer support for teams that need help now.",
-      sub: "Pingora runs your CX with a small, trained team and direct founder oversight. Controlled scope, clear expectations, and hands-on delivery.",
-      ctaPrimary: "Talk to the founder",
-      ctaSecondary: "See if we’re a fit",
+      hero: "Customer Experience as a Service for Growing SaaS Teams",
+      sub: "Pingora handles customer support and Tier-1 tickets for companies with 10–100 employees — so your team can focus on building, not inboxes.",
+      ctaPrimary: "Start a 30-Day Pilot",
+      ctaSecondary: "See How It Works",
 
-      problemTitle: "The problem is operational.",
-      problemPoints: [
-        "Support backlog keeps stacking up",
-        "Founders are still answering tickets",
-        "Engineers get pulled into CX work",
-        "Customers wait too long for clear answers"
+      whatTitle: "What we do",
+      whatPoints: [
+        "Tier-1 support ticket handling",
+        "Customer email and chat support",
+        "Internal escalation workflows",
+        "CX coverage without hiring internally"
       ],
 
-      approachTitle: "What we deliver",
-      approachSub: "Service-first, not volume-first.",
-      approachPoints: [
-        "Email and chat support",
-        "Optional voice support",
-        "1–3 dedicated agents",
-        "Partial coverage aligned to your time zones",
-        "Founder involved in delivery and QA"
+      whoTitle: "Who this is for",
+      whoPoints: [
+        "SaaS startups scaling post-launch",
+        "Teams overwhelmed by support volume",
+        "Founders who don’t want to hire CX yet",
+        "Companies needing structured CX fast"
       ],
 
-      modelTitle: "How the service works",
-      modelSub: "Hands-on delivery with a short initial engagement.",
-      modelPoints: [
-        "We run part or all of your customer support",
-        "Workflows and quality standards are aligned up front",
-        "The initial engagement establishes the operating rhythm",
-        "Ongoing service continues only if there is mutual fit"
+      pilotTitle: "How the 30-Day Pilot works",
+      pilotSub: "This is controlled onboarding — not a proof of concept.",
+      pilotPoints: [
+        "30 days of real support coverage",
+        "Limited scope defined up front",
+        "Real tickets, real workflows",
+        "Designed to evaluate long-term CX outsourcing"
       ],
 
-      forWhoTitle: "Who this is for / not for",
-      forWhoGood: [
-        "Early growth teams with CX pain",
-        "Operators who want control and accountability",
-        "Companies that need a small, focused team"
-      ],
-      forWhoBad: [
-        "Enterprise RFPs or long vendor cycles",
-        "24/7 SLA requirements",
-        "Massive volume or call center needs"
+      whyTitle: "Why outsource CX early",
+      whyPoints: [
+        "Control costs while support demand grows",
+        "Move faster than building a team from scratch",
+        "Avoid premature hiring decisions",
+        "Keep founders out of the support queue"
       ],
 
-      techTitle: "A quick note on the site",
-      techText:
-        "The Vanta background animation is heavy on low-end devices. We’ll remove it on mobile or lazy-load it if it gets in the way. Clarity beats ego.",
-
-      ctaTitle: "Start a CX engagement",
-      ctaText: "If this fits your operating style, let’s talk. You’ll speak with the founder."
+      ctaTitle: "Start your 30-Day CX Pilot",
+      ctaText: "Or talk to us to see if Pingora is a fit."
     }
   };
 
@@ -84,8 +74,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-white overflow-x-hidden">
       <Head>
-        <title>Pingora | CX Pilot</title>
-        <meta name="description" content="Founder-managed CX services with a small team, direct oversight, and clear expectations." />
+        <title>Pingora | CX as a Service</title>
+        <meta name="description" content="Pingora runs customer support and Tier-1 tickets for growing SaaS teams. Start a 30-day pilot to see how CX outsourcing works." />
       </Head>
 
       <Script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js" strategy="beforeInteractive" />
@@ -97,6 +87,7 @@ export default function Home() {
 
         {/* HERO */}
         <section className="min-h-screen flex flex-col justify-center">
+          <p className="text-sm uppercase tracking-[0.2em] text-slate-500 mb-6">Pingora CX</p>
           <h1 className="text-5xl md:text-6xl font-black tracking-tight text-slate-900 mb-6 max-w-3xl">
             {t.hero}
           </h1>
@@ -104,81 +95,65 @@ export default function Home() {
             {t.sub}
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="w-fit border border-gray-300 bg-white px-8 py-3 rounded-full hover:bg-green-50 transition">
+            <button className="w-fit border border-slate-900 bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-slate-800 transition">
               {t.ctaPrimary}
             </button>
-            <button className="w-fit border border-gray-300 bg-white px-8 py-3 rounded-full hover:bg-green-50 transition">
+            <button className="w-fit border border-slate-300 bg-white px-8 py-3 rounded-full hover:bg-slate-50 transition">
               {t.ctaSecondary}
             </button>
           </div>
         </section>
 
-        {/* PROBLEM */}
-        <section className="py-28">
-          <h2 className="text-4xl font-bold mb-8">{t.problemTitle}</h2>
+        {/* WHAT WE DO */}
+        <section className="py-24">
+          <h2 className="text-4xl font-bold mb-8">{t.whatTitle}</h2>
           <ul className="space-y-4 text-lg text-slate-700 max-w-3xl">
-            {t.problemPoints.map((p, i) => (
+            {t.whatPoints.map((p, i) => (
               <li key={i}>— {p}</li>
             ))}
           </ul>
         </section>
 
-        {/* APPROACH */}
-        <section className="py-28 bg-gray-50 -mx-6 px-6">
-          <h2 className="text-4xl font-bold mb-4">{t.approachTitle}</h2>
-          <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.approachSub}</p>
-          <ul className="space-y-3 text-lg text-slate-700 max-w-3xl">
-            {t.approachPoints.map((p, i) => (
+        {/* WHO THIS IS FOR */}
+        <section className="py-24 bg-slate-50 -mx-6 px-6">
+          <h2 className="text-4xl font-bold mb-8">{t.whoTitle}</h2>
+          <ul className="space-y-4 text-lg text-slate-700 max-w-3xl">
+            {t.whoPoints.map((p, i) => (
               <li key={i}>— {p}</li>
             ))}
           </ul>
         </section>
 
-        {/* OPERATING MODEL */}
-        <section className="py-28">
-          <h2 className="text-4xl font-bold mb-4">{t.modelTitle}</h2>
-          <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.modelSub}</p>
-          <ul className="space-y-3 text-lg text-slate-700 max-w-3xl">
-            {t.modelPoints.map((p, i) => (
+        {/* PILOT */}
+        <section className="py-24">
+          <h2 className="text-4xl font-bold mb-4">{t.pilotTitle}</h2>
+          <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.pilotSub}</p>
+          <ul className="space-y-4 text-lg text-slate-700 max-w-3xl">
+            {t.pilotPoints.map((p, i) => (
               <li key={i}>— {p}</li>
             ))}
           </ul>
         </section>
 
-        {/* WHO IT’S FOR */}
-        <section className="py-28">
-          <h2 className="text-4xl font-bold mb-10">{t.forWhoTitle}</h2>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
-            <div>
-              <h3 className="font-semibold mb-4">Good fit if you are:</h3>
-              <ul className="space-y-3 text-slate-700">
-                {t.forWhoGood.map((p, i) => <li key={i}>— {p}</li>)}
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Not a fit if you are:</h3>
-              <ul className="space-y-3 text-slate-700">
-                {t.forWhoBad.map((p, i) => <li key={i}>— {p}</li>)}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* TECH NOTE */}
-        <section className="py-28 bg-gray-50 -mx-6 px-6">
-          <h2 className="text-4xl font-bold mb-6">{t.techTitle}</h2>
-          <p className="text-lg text-slate-600 max-w-3xl">{t.techText}</p>
+        {/* WHY OUTSOURCE */}
+        <section className="py-24 bg-slate-50 -mx-6 px-6">
+          <h2 className="text-4xl font-bold mb-8">{t.whyTitle}</h2>
+          <ul className="space-y-4 text-lg text-slate-700 max-w-3xl">
+            {t.whyPoints.map((p, i) => (
+              <li key={i}>— {p}</li>
+            ))}
+          </ul>
         </section>
 
         {/* CTA */}
-        <section className="py-28">
+        <section className="py-24">
           <h2 className="text-4xl font-bold mb-6">{t.ctaTitle}</h2>
           <p className="text-lg text-slate-600 max-w-3xl mb-8">{t.ctaText}</p>
           <div className="flex flex-wrap gap-4">
-            <button className="w-fit border border-gray-300 bg-white px-8 py-3 rounded-full hover:bg-green-50 transition">
+            <button className="w-fit border border-slate-900 bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-slate-800 transition">
               {t.ctaPrimary}
             </button>
-            <button className="w-fit border border-gray-300 bg-white px-8 py-3 rounded-full hover:bg-green-50 transition">
+            <button className="w-fit border border-slate-300 bg-white px-8 py-3 rounded-full hover:bg-slate-50 transition">
               {t.ctaSecondary}
             </button>
           </div>
