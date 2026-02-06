@@ -47,14 +47,20 @@ export default function Home() {
         "Companies needing structured CX fast"
       ],
 
-      pilotTitle: "How the 30-Day Pilot works",
-      pilotSub: "This is controlled onboarding — not a proof of concept.",
+      pilotTitle: "30-Day CX Pilot",
+      pilotSub:
+        "The 30-day pilot is how companies start working with Pingora — a controlled engagement to evaluate fit, workflows, and support quality in real conditions.",
       pilotPoints: [
-        "30 days of real support coverage",
-        "Limited scope defined up front",
-        "Real tickets, real workflows",
-        "Designed to evaluate long-term CX outsourcing"
+        "30 days of real CX work (not a demo)",
+        "Limited, clearly defined scope",
+        "Tier-1 & Tier-2 support tickets handled by Pingora",
+        "Clear communication and escalation rules",
+        "Designed to test operational fit, not lock anyone in"
       ],
+      pilotExit:
+        "If it’s not a good fit, you’re free to walk away — no pressure, no lock-in.",
+      pilotCtaPrimary: "Start a 30-Day Pilot",
+      pilotCtaSecondary: "Talk to Us First",
 
       whyTitle: "Why outsource CX early",
       whyPoints: [
@@ -133,6 +139,15 @@ export default function Home() {
               <li key={i}>— {p}</li>
             ))}
           </ul>
+          <p className="text-lg text-slate-600 max-w-3xl mt-6">{t.pilotExit}</p>
+          <div className="flex flex-wrap gap-4 mt-8">
+            <button className="w-fit border border-slate-900 bg-slate-900 text-white px-8 py-3 rounded-full hover:bg-slate-800 transition">
+              {t.pilotCtaPrimary}
+            </button>
+            <button className="w-fit border border-slate-300 bg-white px-8 py-3 rounded-full hover:bg-slate-50 transition">
+              {t.pilotCtaSecondary}
+            </button>
+          </div>
         </section>
 
         {/* WHY OUTSOURCE */}
